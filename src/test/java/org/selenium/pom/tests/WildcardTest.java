@@ -9,12 +9,17 @@ public class WildcardTest extends BaseTest {
     //mencoba dulu sebelum dibuat menurut Factory Design Pattern
 
     @Test
-    public void guestAddThreeLasagnaToCart(){
-        //By bumbuAsiaTab = By.xpath("//div[@data-testid='category-menu-bumbu-asia']");
+    public void wildcardTestCase(){
+
 
         MenuPage menuPage = new MenuPage(getDriver());
 
-        menuPage.load();
+        menuPage.load()
+                .viewMenu()
+                .addToCart()
+                .viewCart()
+                .fillBuyerName("Ipsuman")
+                .fillBuyerPhoneNumber("0812345679");
 
 
 
