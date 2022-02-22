@@ -1,0 +1,27 @@
+[
+  {
+    "id": "card-asian-beef-blackpepper-bento",
+    "amount": 2,
+    "notes": "Satu biasa, satu tambah sambal"
+  },
+  {
+    "id": "card-asian-chicken-blackpepper-bowl",
+    "amount": 3,
+    "notes": "Dua tambah mayones"
+  },
+  {
+    "id": "card-asian-beef-blackpepper-bowl",
+    "amount": 1,
+    "notes": ""
+  },
+  {
+    "id": "card-asian-tofu-lasgna",
+    "amount": 4,
+    "notes": "Dua minta sambal ekstra"
+  },
+  {
+    "id": "card-asian-chicken-blackpepper-bento",
+    "amount": 5,
+    "notes": "Jangan ada tulangnya"
+  }
+]

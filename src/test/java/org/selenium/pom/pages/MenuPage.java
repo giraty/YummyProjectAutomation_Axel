@@ -9,11 +9,25 @@ import org.selenium.pom.base.BasePage;
 public class MenuPage extends BasePage {
 
     //By bumbuAsiaTab = By.xpath("//div[@data-testid='category-menu-bumbu-asia']");
-    private final By asianTofuCard = By.xpath("//div[@data-testid='card-asian-tofu-lasgna']//div[@class='ant-card ant-card-bordered ant-card-hoverable']");
-
     //temporary solution for add to cart
+
+
+    private final By asianTofuCard = By.cssSelector("div[data-testid='card-asian-tofu-lasgna']");
+    //private final By asianTofuCard = By.xpath("//div[@data-testid='card-asian-tofu-lasgna']//div[@class='ant-card ant-card-bordered ant-card-hoverable']");
+
+
+    private final By notesTextBox = By.xpath("//textarea[@placeholder='Write additional notes here']");
     private final By addToCartBtn = By.xpath("//button[@class='ButtonNormal__ButtonNormalPrimary-fdaTzk imsIKD']");
     private final By viewCartBtn = By.xpath("//div[@class='ButtonFab__ButtonFabContainer-hnUNFQ bUoZfg']");
+
+    //plus minus saat tambah ke cart
+    private final By minusMenu = By.xpath("//div[@class='css-1dbjc4n r-1awozwy r-1777fci']//div[1]//div[1]");
+    private final By plusMenu = By.xpath("//div[@class='ant-drawer ant-drawer-right ant-drawer-open']//div[3]//div[1]");
+
+    //plus minus saat akan checkout
+    private final By minusCart = By.xpath("//body//div//div[@class='css-1dbjc4n r-1awozwy r-1777fci']//div[@class='css-1dbjc4n r-1awozwy r-1777fci']//div[1]//div[1]");
+    private final By plusCart = By.xpath("//div[@class='css-1dbjc4n r-1awozwy r-1777fci']//div[3]//div[1]");
+
 
     private final By nameFieldCheckout = By.xpath("//input[@placeholder='Eg: Budi']");
     private final By phoneFieldCheckout = By.xpath("//input[@placeholder='081234567890']");
@@ -37,6 +51,11 @@ public class MenuPage extends BasePage {
         return this;
     }
 
+    public MenuPage fillNote(String notes){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(notesTextBox)).sendKeys(notes);
+        return this;
+    }
+
     public MenuPage addToCart(){
         wait.until(ExpectedConditions.elementToBeClickable(addToCartBtn)).click();
         return this;
@@ -52,12 +71,12 @@ public class MenuPage extends BasePage {
     }*/
 
     //username? buyerName? Name? TBA
-    public MenuPage fillBuyerName(String buyername){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(nameFieldCheckout)).sendKeys(buyername);
+    public MenuPage fillBuyerName(String buyerName){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(nameFieldCheckout)).sendKeys(buyerName);
         return this;
     }
-    public MenuPage fillBuyerPhoneNumber(String phonenumber){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(phoneFieldCheckout)).sendKeys(phonenumber);
+    public MenuPage fillBuyerPhoneNumber(String phoneNumber){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(phoneFieldCheckout)).sendKeys(phoneNumber);
         return this;
     }
 

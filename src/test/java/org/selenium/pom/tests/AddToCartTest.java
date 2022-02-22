@@ -4,18 +4,14 @@ import org.selenium.pom.base.BaseTest;
 import org.selenium.pom.pages.MenuPage;
 import org.testng.annotations.Test;
 
-public class WildcardTest extends BaseTest {
-
-    //mencoba dulu sebelum dibuat menurut Factory Design Pattern
+public class AddToCartTest extends BaseTest {
 
     @Test
-    public void wildcardTestCase(){
-
-
+    public void AddToCartIndividually(){
         MenuPage menuPage = new MenuPage(getDriver());
 
         menuPage.load()
-                .viewMenu()// ini buat pilih menu
+                .viewMenu()//ini buat pilih penu
                 .fillNote("Tambah garam")
                 .addToCart()
                 .viewCart()
@@ -23,8 +19,6 @@ public class WildcardTest extends BaseTest {
                 .fillBuyerPhoneNumber("0812345679")
                 .checkoutFood();
 
-
-
+        // tambah asserts nanti di jumlah per item
     }
-
 }
