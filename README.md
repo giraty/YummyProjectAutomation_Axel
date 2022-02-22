@@ -14,7 +14,7 @@ Email: ipsuman987@gmail.com
 - Klik Asian Beef Blackpepper Bento, klik - saat sudah add, klik Asian Chicken Blackpepper Bento, beli 2, dengan note "Tambah sambal jika bisa", checkout, bayar dengan Gopay.
 - TBA
 
-[]Bentuk coding belum total POM, masih meraba-raba.
+[]Bentuk coding belum sepenuhnya mengikuti Page Object Model
 
 []Akan nanti coba tes apakah bisa inject cookies di halaman bayar (inject cookies menu-menu makanan).
 
