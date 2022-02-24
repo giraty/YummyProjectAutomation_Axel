@@ -8,8 +8,8 @@ public class WildcardTest extends BaseTest {
 
     //mencoba dulu sebelum dibuat menurut Factory Design Pattern
 
-    @Test
-    public void wildcardTestCase(){
+    //@Test
+/*    public void wildcardTestCase(){
 
 
         MenuPage menuPage = new MenuPage(getDriver());
@@ -25,6 +25,6 @@ public class WildcardTest extends BaseTest {
 
 
 
-    }
+    }*/
 
 }
