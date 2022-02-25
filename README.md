@@ -9,12 +9,9 @@ Nama: Ipsuman
 No. hp: 0812345679
 Email: ipsuman987@gmail.com
 
-- AddToCart test semua produk yang dapat dibeli, dengan masing-masing notes dan jumlah
-- Klik Asian Beef Blackpepper Bento, tidak jadi (x pada detail), klik Asian Chicken Blackpepper Bento, beli 2, dengan note "Tambah sambal jika bisa", checkout, bayar dengan Gopay.
-- Klik Asian Beef Blackpepper Bento, klik - saat sudah add, klik Asian Chicken Blackpepper Bento, beli 2, dengan note "Tambah sambal jika bisa", checkout, bayar dengan Gopay.
-- TBA
+- AddToCart test semua produk yang dapat dibeli, dengan masing-masing notes dan jumlah. Hasil berupa 5 transaksi berbeda yang bersamaan.
+- Checkout test sampai payment dengan inject Cart API.
 
-[]Bentuk coding belum sepenuhnya mengikuti Page Object Model
 
 []Akan nanti coba tes apakah bisa inject cookies di halaman bayar (inject cookies menu-menu makanan).
 
