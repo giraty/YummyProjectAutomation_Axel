@@ -8,9 +8,14 @@ import org.selenium.pom.pages.MenuPage;
 
 public class MenuCard extends BasePage {
 
-    //private final By addMenuToCartBtn = By.xpath("//button[@class='ButtonNormal__ButtonNormalPrimary-fdaTzk imsIKD']");
+    private final By addMenuToCartBtn = By.xpath("//div[@class='css-901oao r-jwli3a r-fppytw r-1b43r93 r-vw2c0b r-rjixqe r-p1pxzi r-11wrixw r-61z16t r-1mnahxq r-g18oep r-gy4na3 r-9aemit r-q4m81j r-paz4er r-13wfysu r-1a2p6p6 r-ll0aj r-3twk1y']");
 
     private final By viewCartBtn = By.xpath("//div[@class='ButtonFab__ButtonFabContainer-hnUNFQ bUoZfg']");
+
+    private final By notesTextBox = By.xpath("//textarea[@placeholder='Write additional notes here']");
+    private final By plusMenu = By.xpath("//div[@class='ant-drawer ant-drawer-right ant-drawer-open']//div[3]//div[1]");
+
+
 
     private final By nameFieldCheckout = By.xpath("//input[@placeholder='Eg: Budi']");
     private final By phoneFieldCheckout = By.xpath("//input[@placeholder='081234567890']");
@@ -27,16 +32,37 @@ public class MenuCard extends BasePage {
         return By.xpath("//div[@data-testid='" + menuName + "']");
     }
 
-    public MenuCard viewMenu(String menuName){
-        By addMenuToCartBtn = getViewMenuElement(menuName);
+    public MenuCard viewMenu(String menuName, int menuAmount, String menuNotes){
+        By menuToCart = getViewMenuElement(menuName);
         //
-        wait.until(ExpectedConditions.visibilityOfElementLocated(addMenuToCartBtn)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(menuToCart)).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(notesTextBox)).sendKeys(menuNotes);
+
+        if(menuAmount>1){
+            for(int n = menuAmount - 1; n > 0; n--) {
+                wait.until(ExpectedConditions.elementToBeClickable(plusMenu)).click();
+                System.out.println(n);
+            }
+        }
+
+        wait.until(ExpectedConditions.elementToBeClickable(addMenuToCartBtn)).click();
         return this;
     }
+
+
+
+    /*    public MenuPage addToCart(){
+        wait.until(ExpectedConditions.elementToBeClickable(addToCartBtn)).click();
+        return this;
+    }*/
+
     public MenuCard viewCart(){
         wait.until(ExpectedConditions.elementToBeClickable(viewCartBtn)).click();
         return this;
     }
+
+
 
     public MenuCard fillBuyerName(String buyerName){
         wait.until(ExpectedConditions.visibilityOfElementLocated(nameFieldCheckout)).sendKeys(buyerName);

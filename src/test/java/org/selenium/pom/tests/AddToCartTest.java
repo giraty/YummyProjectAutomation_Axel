@@ -1,9 +1,11 @@
 package org.selenium.pom.tests;
 
+import org.testng.Assert;
 import org.selenium.pom.base.BaseTest;
 import org.selenium.pom.dataproviders.MenuDataProvider;
 import org.selenium.pom.objects.Menu;
 import org.selenium.pom.pages.MenuPage;
+import org.selenium.pom.pages.compoments.MenuCard;
 import org.testng.annotations.Test;
 
 public class AddToCartTest extends BaseTest {
@@ -32,11 +34,14 @@ public class AddToCartTest extends BaseTest {
         menuPage.load()
                 .getMenuCard()//ini buat pilih penu
                 //.addToCart()
-                .viewMenu(menu.getMenuId())
-                .viewCart()
-                .fillBuyerName("Ipsuman")
-                .fillBuyerPhoneNumber("0812345679")
-                .checkoutFood();
+                .viewMenu(menu.getMenuId(), menu.getAmount(),menu.getNotes());
+
+
+        Assert.assertEquals(menuPage.getViewCart(), "View Cart");
+                //.viewCart();
+                //.fillBuyerName("Ipsuman")
+                //.fillBuyerPhoneNumber("0812345679")
+                //.checkoutFood();
 
         // tambah asserts nanti di jumlah per item
     }

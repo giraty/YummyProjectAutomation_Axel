@@ -9,22 +9,23 @@ public class WildcardTest extends BaseTest {
     //mencoba dulu sebelum dibuat menurut Factory Design Pattern
 
     //@Test
-/*    public void wildcardTestCase(){
+    public void wildcardTestCase(){
 
 
         MenuPage menuPage = new MenuPage(getDriver());
 
         menuPage.load()
                 .viewMenu()// ini buat pilih menu
-                .fillNote("Tambah garam")
-                .addToCart()
-                .viewCart()
-                .fillBuyerName("Ipsuman")
-                .fillBuyerPhoneNumber("0812345679")
-                .checkoutFood();
+                .fillNote("Tambah garam");
+                //.addMenuAmount(5);
+                //.addToCart()
+                //.viewCart()
+                //.fillBuyerName("Ipsuman")
+                //.fillBuyerPhoneNumber("0812345679")
+                //.checkoutFood();
 
 
 
-    }*/
+    }
 
 }

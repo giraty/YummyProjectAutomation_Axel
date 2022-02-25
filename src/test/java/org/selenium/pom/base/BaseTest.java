@@ -78,7 +78,9 @@ public class BaseTest {
         System.out.println("CURRENT THREAD: " + Thread.currentThread().getId() + ", " + "DRIVER= " + getDriver());
         //getDriver().quit();
 
-        getDriverManager().getDriver().quit();
+        getDriverManager()
+                .getDriver()
+                .quit();
     }
 
 
