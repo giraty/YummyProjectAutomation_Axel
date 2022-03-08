@@ -25,16 +25,20 @@ public class CartApi {
         return cookies;
     }
 
-    public Response addToCart(String sentryKey, int sentryVersion){
+    public Response addToCart(String name, String mobile, int menuId, int quantity){
 
         Cookies cookies = new Cookies();
         //sementara tidak ada login function, bisa new cookies
-        Header header = new Header("content-type","text/plain" );
+        Header header = new Header("content-type","application/json" );
         Headers headers = new Headers(header);
 
         HashMap<String, Object> formParams = new HashMap<>();
-        formParams.put("sentry_key", sentryKey);
-        formParams.put("sentry_version", sentryVersion);
+        //formParams.put("sentry_key", sentryKey);
+        //formParams.put("sentry_version", sentryVersion);
+        formParams.put("name", name);
+        formParams.put("mobile", mobile);
+        formParams.put("id", menuId);
+        formParams.put("quantity", quantity);
 
         if(cookies == null){
             cookies = new Cookies();
@@ -50,12 +54,12 @@ public class CartApi {
                 .filter(new AllureRestAssured())
                 .log().all()
                 .when()
-                .post("/api/5440798/envelope")
+                .post("v2/customers/orders/web/")
                 .then()
                 .log().all()
                 .extract().response();
         if (response.getStatusCode() != 200) {
-            throw new RuntimeException("Failed to add product" + sentryKey + " to the cart, http response: " + response.getStatusCode());
+            throw new RuntimeException("Failed to add product to the cart, http response: " + response.getStatusCode());
         }
         this.cookies = response.getDetailedCookies();
         return response;
