@@ -9,6 +9,7 @@ import org.selenium.pom.constants.DriverType;
 import org.selenium.pom.factory.abstractFactory.DriverManagerAbstract;
 import org.selenium.pom.factory.abstractFactory.DriverManagerFactoryAbstract;
 //import org.selenium.pom.utils.CookieUtils;
+import org.selenium.pom.utils.CookieUtils;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -81,6 +82,14 @@ public class BaseTest {
         getDriverManager()
                 .getDriver()
                 .quit();
+    }
+
+    public void injectCookiesToBrowser(Cookies cookies){
+        List<Cookie> seleniumCookies = new CookieUtils().convertRestAssuredCookiesToSeleniumCookies(cookies);
+        for(Cookie cookie: seleniumCookies){
+            getDriver().manage().addCookie(cookie);
+
+        }
     }
 
 

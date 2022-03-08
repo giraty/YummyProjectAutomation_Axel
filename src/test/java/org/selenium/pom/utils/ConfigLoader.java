@@ -36,5 +36,12 @@ public class ConfigLoader {
         else throw new RuntimeException("property baseUrl is not specified in config properties file");
     }
 
+    public String getBaseApiUrl(){
+        String prop = properties.getProperty("baseApiUrl");
+        if(prop != null){
+            return prop;
+        }
+        else throw new RuntimeException("property baseUrl is not specified in config properties file");
+    }
 
 }
