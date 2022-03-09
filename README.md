@@ -13,5 +13,6 @@ Email: ipsuman987@gmail.com
 - Beli satu-satu
 - Beli semua dalam satu pesanan.
 - Beli satu menu saja.
+- AddToCart lalu batal.
 
 - Checkout test sampai payment, baik dengan Gopay maupun OVO.
