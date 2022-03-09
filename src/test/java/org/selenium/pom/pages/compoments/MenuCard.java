@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.selenium.pom.base.BasePage;
 import org.selenium.pom.pages.CheckoutPage;
-import org.selenium.pom.pages.MenuPage;
 
 public class MenuCard extends BasePage {
 
@@ -15,20 +14,25 @@ public class MenuCard extends BasePage {
 
     private final By notesTextBox = By.xpath("//textarea[@placeholder='Write additional notes here']");
     private final By plusMenu = By.xpath("//div[@class='ant-drawer ant-drawer-right ant-drawer-open']//div[3]//div[1]");
+    private final By minusMenu = By.xpath("(//div[@class='css-1dbjc4n r-1awozwy r-kw8k95 r-1867qdf r-1loqt21 r-mabqd8 r-1777fci r-1otgn73 r-1i6wzkk r-lrvibr r-1yvhtrz'])[1]");
 
     private final By nameFieldCheckout = By.xpath("//input[@placeholder='Eg: Budi']");
     private final By phoneFieldCheckout = By.xpath("//input[@placeholder='081234567890']");
 
     private final By checkoutBtn = By.xpath("//div[@class='css-901oao r-jwli3a r-fppytw r-1b43r93 r-vw2c0b r-rjixqe r-p1pxzi r-11wrixw r-61z16t r-1mnahxq r-g18oep r-gy4na3 r-9aemit r-fdjqy7 r-paz4er r-13wfysu r-1a2p6p6 r-ll0aj r-1ozqkpa']");
-    private final By viewCartNotice = By.xpath("//div[@class='css-901oao r-jwli3a r-1ouijob r-1b43r93 r-uiaua r-rjixqe r-p1pxzi r-1jkjb r-1kb76zh r-1mnahxq r-g18oep r-gy4na3 r-9aemit r-fdjqy7 r-paz4er r-13wfysu r-1a2p6p6 r-ll0aj r-3twk1y']");
+    private final By viewCartNotice = By.xpath("(//div[@class='css-901oao r-jwli3a r-1ouijob r-1b43r93 r-uiaua r-rjixqe r-p1pxzi r-1jkjb r-1kb76zh r-1mnahxq r-g18oep r-gy4na3 r-9aemit r-fdjqy7 r-paz4er r-13wfysu r-1a2p6p6 r-ll0aj r-3twk1y'])[1]");
 
     public MenuCard(WebDriver driver){
         super(driver);
     }
 
     private By getViewMenuElement(String menuName){
-        //return By.cssSelector("div[data-testid='“" + menuName + "”']");
         return By.xpath("//div[@data-testid='" + menuName + "']");
+    }
+
+    public MenuCard substractMenu(){
+        wait.until(ExpectedConditions.elementToBeClickable(minusMenu)).click();
+        return this;
     }
 
     public MenuCard viewMenu(String menuName, int menuAmount, String menuNotes){
@@ -49,10 +53,10 @@ public class MenuCard extends BasePage {
         return this;
     }
 
-        public MenuCard addToCart(){
+/*    public MenuCard addToCart(){
         wait.until(ExpectedConditions.elementToBeClickable(addMenuToCartBtn)).click();
         return this;
-    }
+    }*/
 
     public MenuCard viewCart(){
         wait.until(ExpectedConditions.elementToBeClickable(viewCartBtn)).click();
@@ -76,6 +80,5 @@ public class MenuCard extends BasePage {
     public String getViewCart(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(viewCartNotice)).getText();
     }
-
 
 }

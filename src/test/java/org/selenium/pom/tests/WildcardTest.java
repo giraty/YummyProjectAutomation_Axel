@@ -35,9 +35,6 @@ public class WildcardTest extends BaseTest {
                     .orderSummary()
                     .continueToPay();
 
-
-
-
     }
 
 }

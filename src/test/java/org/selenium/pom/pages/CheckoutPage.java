@@ -4,12 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.selenium.pom.base.BasePage;
-import org.selenium.pom.pages.compoments.MenuCard;
 
 public class CheckoutPage extends BasePage {
 
     public CheckoutPage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -21,7 +19,13 @@ public class CheckoutPage extends BasePage {
 
     private final By orderSummaryBtn = By.xpath("//div[@class='css-901oao r-jwli3a r-fppytw r-1b43r93 r-vw2c0b r-rjixqe r-p1pxzi r-11wrixw r-61z16t r-1mnahxq r-g18oep r-gy4na3 r-9aemit r-q4m81j r-paz4er r-13wfysu r-1a2p6p6 r-ll0aj r-1ozqkpa']");
 
-    private final By continueToPayBtn = By.xpath("//button[@class='ButtonNormal__ButtonNormalPrimary-fdaTzk imsIKD']");
+    private final By continueToPayBtn = By.xpath("(//div[@class='css-901oao r-jwli3a r-fppytw r-1b43r93 r-vw2c0b r-rjixqe r-p1pxzi r-11wrixw r-61z16t r-1mnahxq r-g18oep r-gy4na3 r-9aemit r-q4m81j r-paz4er r-13wfysu r-1a2p6p6 r-ll0aj r-1ozqkpa'])[1]");
+
+    private final By goPayNotice = By.xpath("//div[@class='css-901oao r-181bzza r-1ouijob r-1b43r93 r-uiaua r-rjixqe r-p1pxzi r-11wrixw r-61z16t r-1mnahxq r-g18oep r-gy4na3 r-9aemit r-q4m81j r-fg3u39 r-13wfysu r-1a2p6p6 r-ll0aj r-3twk1y'][normalize-space()='Open the GOJEK application from your phone, click \"pay\" and scan this QR code to complete your payment']");
+
+    private final By ovoNumber = By.xpath("(//input[@placeholder='Enter your phone number'])[1]");
+
+    private final By ovoNotice = By.xpath("(//div)[52]");
 
     public CheckoutPage fillBuyerEmail(String emailAddress){
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailTextBox)).sendKeys(emailAddress);
@@ -52,6 +56,17 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
-    //untuk checkbox, if div found, maka klik, karena saat checkbox on, dia hilang div kosongnya
+    public String getGoPayNotice(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(goPayNotice)).getText();
+    }
+
+    public CheckoutPage fillOvoNumber(String ovoPhoneNumber){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ovoNumber)).sendKeys(ovoPhoneNumber);
+        return this;
+    }
+
+    public String getOvoNotice(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(ovoNotice)).getText();
+    }
 
 }
