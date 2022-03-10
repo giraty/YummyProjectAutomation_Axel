@@ -57,19 +57,17 @@ public class BaseTest {
     //lagi di comment krn sedang tidak pakai TestNG, direct run dari IDE
     @BeforeMethod
     public synchronized void startDriver(@Optional String browser){
-        browser = System.getProperty("browser", browser); // ini untuk pakai dengan JVM
-        //setDriver(DriverManagerFactory.getManager(DriverType.valueOf(browser)).createDriver());
-        if(browser == null){
-            browser = "CHROME";
-        }
-        setDriverManager(DriverManagerFactoryAbstract
-                .getManager(DriverType.valueOf(browser)));
-        //tempat ngeset normal atau abstract
 
+        browser = System.getProperty("browser", browser);
+        //if(browser == null){
+        //    browser = "CHROME";
+        //}
+        setDriverManager(DriverManagerFactoryAbstract.
+                getManager(DriverType.valueOf(browser)));
         setDriver(getDriverManager().getDriver());
+        System.out.println("CURRENT THREAD: " + Thread.currentThread().getId() + ", " +
+                "DRIVER = " + getDriver());
 
-        //setDriver(new DriverManagerOriginal().initializeDriver(browser));
-        System.out.println("CURRENT THREAD: " + Thread.currentThread().getId() + ", " + "DRIVER= " + getDriver());
     }
     @Parameters("browser")
     @AfterMethod
