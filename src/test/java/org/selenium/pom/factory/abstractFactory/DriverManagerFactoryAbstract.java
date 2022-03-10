@@ -9,9 +9,6 @@ public class DriverManagerFactoryAbstract {
             case CHROME -> {
                 return new ChromeDriverManagerAbstract();
             }
-            case FIREFOX -> {
-                return new FirefoxDriverManagerAbstract();
-            }
             default -> throw new IllegalStateException("Invalid browser name: " + driverType);
         }
     }
