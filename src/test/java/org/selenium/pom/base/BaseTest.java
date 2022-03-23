@@ -43,6 +43,7 @@ public class BaseTest {
         return this.driver.get();
     }
 /*    private ThreadLocal<DriverManagerAbstract> driverManager = new ThreadLocal<>();
+mvn clean test -Dbrowser=CHROME -Dtest=HomeToCheckoutTest#checkoutUsingGoPayTest test
 
 
     private void setDriverManager(DriverManagerAbstract driverManager){

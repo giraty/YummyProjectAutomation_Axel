@@ -25,7 +25,9 @@ public class CheckoutPage extends BasePage {
 
     private final By ovoNumber = By.xpath("(//input[@placeholder='Enter your phone number'])[1]");
 
-    private final By ovoNotice = By.xpath("(//div)[52]");
+    private final By ovoNotice = By.xpath("//div[@class='ant-modal-content']//div[3]");
+
+    private final By changePaymentBtn = By.xpath("(//div[@class='css-1dbjc4n r-1loqt21 r-1otgn73 r-1i6wzkk r-lrvibr'])[2]");
 
     public CheckoutPage fillBuyerEmail(String emailAddress){
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailTextBox)).sendKeys(emailAddress);
@@ -67,6 +69,11 @@ public class CheckoutPage extends BasePage {
 
     public String getOvoNotice(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(ovoNotice)).getText();
+    }
+
+    public CheckoutPage changePaymentMethod(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(changePaymentBtn)).click();
+        return this;
     }
 
 }
