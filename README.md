@@ -10,9 +10,11 @@ No. hp: 0812345679
 Email: ipsuman987@gmail.com
 
 - AddToCart test semua produk yang dapat dibeli, dengan masing-masing notes dan jumlah dengan:
-- Beli satu-satu
+- Beli semua menu dalam pesanan terpisah (paralel)
 - Beli semua dalam satu pesanan.
 - Beli satu menu saja.
-- AddToCart lalu batal.
+- Tambah ke cart lalu batal.
 
-- Checkout test sampai payment, baik dengan Gopay maupun OVO.
+- Checkout test sampai payment dengan GoPay.
+- Checkout test sampai payment dengan OVO.
+- Checkout test sampai payment dengan GoPay, lalu ganti metode pembayaran dengan OVO.
